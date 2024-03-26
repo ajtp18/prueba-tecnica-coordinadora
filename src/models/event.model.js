@@ -8,6 +8,11 @@ class Event {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    static async create(title, description, date, location) {
+        return new Event(null, title, description, date, location, null, null);
+    }
+
 }
 
 module.exports = Event;

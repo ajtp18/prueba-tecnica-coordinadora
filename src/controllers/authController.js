@@ -3,14 +3,14 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/user.model');
 const config = require('../utils/config');
+const db = require('../db/index');
 
 async function login(req, reply) {
     const { username, password } = req.body;
 
     try {
-        const query = 'SELECT * FROM users WHERE username = $1';
-        const result = await db.query(query, [username]);
-        const user = result.rows[0];
+        const user = await User.findByUsername(username);
+        console.log(user)
 
         if (!user) {
             return reply.code(404).send({ message: 'Usuario no encontrado.' });

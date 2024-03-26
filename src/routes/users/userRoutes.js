@@ -5,7 +5,7 @@ const { authenticate } = require('../../middleware/auth.middleware');
 
 function userRoutes(fastify, options, done) {
     fastify.post('/register', userController.createUser);
-    fastify.post('/login', { preHandler: authenticate }, authController.login);
+    fastify.post('/login', authController.login);
     done();
 }
 
