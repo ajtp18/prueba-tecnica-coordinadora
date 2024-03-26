@@ -11,14 +11,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fastify/swagger": "^6.0.0",
     "bcrypt": "^5.1.1",
-    "fastify": "^4.26.2",
-    "fastify-swagger": "^5.2.0",
+    "fastify": "3.15.0",
+    "fastify-cors": "^6.1.0",
+    "fastify-static": "^2.7.0",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.11.3",
     "pg-promise": "^11.5.5"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
     "node-pg-migrate": "^6.2.2",
     "nodemon": "^3.1.0"
   }

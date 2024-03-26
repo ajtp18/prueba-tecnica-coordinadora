@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../utils/config');
 
 function authenticate(req, reply, done) {
-    const token = req.headers["x-access-token"];
+    const token = req.headers['authorization'];
 
     if (!token) {
         return reply.code(401).send({ message: 'Token de autenticación no proporcionado.' });

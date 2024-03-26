@@ -1,12 +1,14 @@
 
 const db = require('../../src/db/index');
 const Event = require('../models/event.model');
+const Attendee = require('../models/attendee.model');
 
 async function createEvent(req, reply) {
     const { title, description, date, location } = req.body;
 
     try {
         const newEvent = await Event.create(title, description, date, location);
+
         const query = 'INSERT INTO events (title, description, date, location) VALUES ($1, $2, $3, $4) RETURNING id';
         const values = [newEvent.title, newEvent.description, newEvent.date, newEvent.location];
         const result = await db.query(query, values);
@@ -18,7 +20,7 @@ async function createEvent(req, reply) {
     catch (error) {
         return reply.code(500).send({ message: 'Error al crear el evento', error });
     }
-};
+}
 
 async function getEvents(req, reply) {
     try {

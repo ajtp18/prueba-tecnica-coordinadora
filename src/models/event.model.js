@@ -5,6 +5,7 @@ class Event {
         this.description = description;
         this.date = date;
         this.location = location;
+        this.attendee = []
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
