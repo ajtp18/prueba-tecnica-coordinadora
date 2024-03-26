@@ -18,7 +18,6 @@ async function createUser(req, reply) {
         const query = 'INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id';
         const values = [newUser.username, newUser.password];
         const result = await db.query(query, values);
-        console.log(result.rows);
         
         newUser.id = result.rows[0]
 

@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ""
+    volumes:
+      - ./init_database:/docker-entrypoint-initdb.d
+    ports:
+      - "8080:8080"
+
+    
