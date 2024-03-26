@@ -1,9 +1,10 @@
 const fastify = require('fastify')({ logger: true });
 const db = require('./db/index');
+
+
 const eventRoutes = require('./routes/event/eventRouter');
 const userRoutes = require('./routes/users/userRoutes');
 
-// Conectar a la base de datos al iniciar la aplicación
 db.connect()
   .then(() => {
     console.log('Conexión establecida a la base de datos');

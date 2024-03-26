@@ -13,6 +13,20 @@ class Event {
         return new Event(null, title, description, date, location, null, null);
     }
 
+    static async findById(id) {
+        const query = 'SELECT * FROM events WHERE id = $1';
+        const values = [id];
+        const result = await db.query(query, values);
+
+        if (result.rows.length) {
+            const event = result.rows[0];
+            return new Event(event.id, event.title, event.description, event.date, event.location, event.created_at, event.updated_at);
+        }
+
+        return null;
+    }
+
+
 }
 
 module.exports = Event;
