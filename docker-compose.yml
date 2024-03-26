@@ -5,7 +5,7 @@ services:
     image: postgres:latest
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 123456789
+      POSTGRES_PASSWORD: ""
     volumes:
       - ./init_database:/docker-entrypoint-initdb.d
     ports:

@@ -34,7 +34,7 @@ fastify.register(attendeeRoutes);
 fastify.register(userRoutes);
 
 // Inicia el servidor
-const PORT = process.env.PORT || 3000;
+const PORT = 8000;
 fastify.listen(PORT, (err) => {
   if (err) throw err;
   console.log(`Servidor escuchando en el puerto ${PORT}`);
